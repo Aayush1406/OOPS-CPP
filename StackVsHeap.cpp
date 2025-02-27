@@ -110,7 +110,8 @@ int main(){
     //     delete[] p2;
     // }
     cout<<"----Smart pointers----"<<endl;
-    {   //Destructor called automatically when p6 goes out of the scope.
+    {   ///Destructor called automatically when p6 goes out of the scope. 
+        // unique ptr is used whenever we want only a single ptr for a particular resource.
         unique_ptr<Person> p6 = make_unique<Person>("Jack", 42);
         p6->display();
     }
