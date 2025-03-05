@@ -196,6 +196,30 @@ int main(){
     // int* ptr = new int(10);
     // delete ptr;  // Memory freed, but ptr still holds the old address
     // cout << *ptr;  // ❌ Undefined behavior (dangling pointer)
-        
+
+
+    cout<<"======== Nvidia interview concepts ==========="<<endl;
+
+    // char (size  = 1 Byte).
+    // new char[4] // creates 4 bytes of memory
+    // 'ptr' is a pointer to char datatype
+    //  1 byte at a time.
+    char* ptr = new char[4];
+//  Bits  8  8  8  8       (Byte)  (Hex representation) 
+    // 0x 00 00 00 03 | 0000 0001 (0x01)
+    // 0x 00 00 00 02 | 0000 0010 (0x02)
+    // 0x 00 00 00 01 | 0000 0011 (0x03)
+    // 0x 00 00 00 00 | 0000 0100 (0x04)
+           
+    *(ptr+0) = 1;
+    *(ptr+1) = 2;
+    *(ptr+2) = 3;
+    *(ptr+3) = 4;
+
+    // Now p is pointing to all the 4 bytes [0x 04 03 02 01] = [67,305,985]
+    int *p = (int*)ptr;
+
+    cout<<*p;
+    
 }
 
