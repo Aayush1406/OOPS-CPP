@@ -219,6 +219,11 @@ int main(){
     // Now p is pointing to all the 4 bytes [0x 04 03 02 01] = [67,305,985]
     int *p = (int*)ptr;
 
+    // If a ptr is of char* type it is expected to access memory 1 byte at a time the reason is sizeof(char) is 1 byte. 
+    // So when you increment the ptr (ptr++), it moves to the next byte. 
+    // Now if we cast the ptr to (int*) it will move by 4 bytes at a time / at a time it can access 4 bytes as sizeof(int) is 4 bytes.
+    
+    
     cout<<*p;
     
 }
