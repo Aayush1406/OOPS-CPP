@@ -225,6 +225,25 @@ int main(){
     
     
     cout<<*p;
+
+//     int main(){
+
+//     int a[] = {1,2,3,4,5};
+//     int b[5];
+//     my_memcpy(b,a,sizeof(a));
+//     for(int i=0;i<sizeof(a)/sizeof(a[0]);i++){
+//         cout<<a[i]<<endl;
+//     }
+// }
+
+cout<<"======== Memcpy internal impl ==========="<<endl;
+
+// const here ensures that you will not modify the data of src.
+void my_memcpy(void* dest, const void* src, int size){
+        for(int i=0;i<size;i++){
+            *((char*)dest+i) = *((char*)src+i); 
+        }
+    }
     
 }
 
