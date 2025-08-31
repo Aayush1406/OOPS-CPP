@@ -8,6 +8,7 @@ class SmartPointer{
         int* p;
 
     public:
+
         SmartPointer(int* ptr){
             p = ptr;
         }
@@ -26,6 +27,11 @@ class SmartPointer{
 
         int& operator*(){ // returns the heap memory location reference 
             return *p;
+        }
+
+        SmartPointer(const SmartPointer& o){
+            this->p = new int;
+            *(this->p) = *(o.p);
         }
 
 };
@@ -47,6 +53,13 @@ int main(){
 
     cout<<p.getValue()<<endl; //13
 
+    SmartPointer p2 = p; // shallow copy (copy constructor) is invoked !
+    // problem is when p and p2 both goes out of the scope destructor deletes same heap twice
+    // which is incorrect and leads to crash !
+
+    *p2 = 9;
+
+    cout<<*p2<<endl;
     
     return 0;
 }
